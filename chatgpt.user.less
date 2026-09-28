@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ChatGPT palettes — Catppuccin, Rosé Pine, Nord
 @namespace      github.com/thorgnir/chatgpt-userstyles
-@version        1.0.9
+@version        1.0.10
 @description    One self-contained ChatGPT theme with selectable palettes
 @author         thorgnir; palettes by Catppuccin, Rosé Pine, and Nord
 @license        MIT
@@ -114,6 +114,11 @@
   /* The sidebar overrides --color-text with a translucent accent. */
   html.chatgpt-theme[data-theme] nav[aria-label="Chat history"] {
     --color-text: @text;
+  }
+
+  /* The model picker's effort range uses a fixed blue fill. */
+  html.chatgpt-theme[data-theme] [role="menu"] [data-orientation="horizontal"]:has([role="slider"]) > [data-orientation="horizontal"] > [aria-hidden="true"] {
+    background: @accent;
   }
 
   /* The new composer declares this variable on its layout root. */
