@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ChatGPT palettes — Catppuccin, Rosé Pine, Nord
 @namespace      github.com/thorgnir/chatgpt-userstyles
-@version        1.0.7
+@version        1.0.8
 @description    One self-contained ChatGPT theme with selectable palettes
 @author         thorgnir; palettes by Catppuccin, Rosé Pine, and Nord
 @license        MIT
@@ -108,6 +108,11 @@
      without depending on generated class names. */
   html.chatgpt-theme[data-theme] body {
     background: @base;
+    color: @text;
+  }
+
+  /* Keep chat titles calm even when the sidebar derives text from the accent. */
+  html.chatgpt-theme[data-theme] nav a[href*="/c/"] {
     color: @text;
   }
 
