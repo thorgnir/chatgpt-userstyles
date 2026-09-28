@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ChatGPT palettes — Catppuccin, Rosé Pine, Nord
 @namespace      github.com/thorgnir/chatgpt-userstyles
-@version        1.0.6
+@version        1.0.7
 @description    One self-contained ChatGPT theme with selectable palettes
 @author         thorgnir; palettes by Catppuccin, Rosé Pine, and Nord
 @license        MIT
@@ -157,11 +157,6 @@
     color: @text;
   }
 
-  /* Plain-text blocks have outer padding with a different background. */
-  html.chatgpt-theme[data-theme] div:has(> .sticky:has(button[aria-label="Copy"])):not(:has(pre)) {
-    background: @code;
-  }
-
   /* Code toolbars have a Copy action across plain text and highlighted blocks. */
   html.chatgpt-theme[data-theme] .sticky:has(button[aria-label="Copy"]) {
     background: @sidebar;
@@ -171,6 +166,11 @@
   html.chatgpt-theme[data-theme] :where(code:not(pre code)) {
     background: @surface;
     color: @text;
+  }
+
+  /* Plain-text blocks use <code> without <pre>; let the block surface show. */
+  html.chatgpt-theme[data-theme] .sticky:has(button[aria-label="Copy"]) + div code {
+    background: transparent;
   }
 
   html.chatgpt-theme[data-theme] ::selection {
