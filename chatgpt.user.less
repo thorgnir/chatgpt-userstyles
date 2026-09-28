@@ -1,0 +1,165 @@
+/* ==UserStyle==
+@name           ChatGPT palettes — Catppuccin, Rosé Pine, Nord
+@namespace      github.com/thorgnir/chatgpt-userstyles
+@version        1.0.0
+@description    One self-contained ChatGPT theme with selectable palette and accent
+@author         thorgnir; palettes by Catppuccin, Rosé Pine, and Nord
+@license        MIT
+@homepageURL    https://github.com/thorgnir/chatgpt-userstyles
+@updateURL      https://raw.githubusercontent.com/thorgnir/chatgpt-userstyles/main/chatgpt.user.less
+@preprocessor   less
+@var select palette "Palette" ["mocha:Catppuccin Mocha*", "macchiato:Catppuccin Macchiato", "frappe:Catppuccin Frappé", "latte:Catppuccin Latte", "main:Rosé Pine", "moon:Rosé Pine Moon", "dawn:Rosé Pine Dawn", "nord:Nord"]
+@var select accentColor "Accent" ["accentDefault:Palette default*", "accentRed:Red", "accentOrange:Orange", "accentYellow:Yellow", "accentGreen:Green", "accentTeal:Teal", "accentBlue:Blue", "accentPurple:Purple", "accentPink:Pink"]
+==/UserStyle== */
+
+@-moz-document domain("chatgpt.com") {
+  /* Palette values are embedded so Stylus needs no network imports. */
+  @palettes: {
+    @latte: { @base: #eff1f5; @sidebar: #e6e9ef; @surface: #ccd0da; @raised: #bcc0cc; @border: #acb0be; @text: #4c4f69; @secondary: #5c5f77; @muted: #6c6f85; @accent: #8839ef; @red: #d20f39; @green: #40a02b; @yellow: #df8e1d; @blue: #1e66f5; @code: #dce0e8; @on_accent: #ffffff; @accentDefault: #8839ef; @accentRed: #d20f39; @accentOrange: #fe640b; @accentYellow: #df8e1d; @accentGreen: #40a02b; @accentTeal: #179299; @accentBlue: #1e66f5; @accentPurple: #8839ef; @accentPink: #ea76cb; @scheme: light; };
+    @frappe: { @base: #303446; @sidebar: #292c3c; @surface: #414559; @raised: #51576d; @border: #626880; @text: #c6d0f5; @secondary: #b5bfe2; @muted: #a5adce; @accent: #ca9ee6; @red: #e78284; @green: #a6d189; @yellow: #e5c890; @blue: #8caaee; @code: #232634; @on_accent: #303446; @accentDefault: #ca9ee6; @accentRed: #e78284; @accentOrange: #ef9f76; @accentYellow: #e5c890; @accentGreen: #a6d189; @accentTeal: #81c8be; @accentBlue: #8caaee; @accentPurple: #ca9ee6; @accentPink: #f4b8e4; @scheme: dark; };
+    @macchiato: { @base: #24273a; @sidebar: #1e2030; @surface: #363a4f; @raised: #494d64; @border: #5b6078; @text: #cad3f5; @secondary: #b8c0e0; @muted: #a5adcb; @accent: #c6a0f6; @red: #ed8796; @green: #a6da95; @yellow: #eed49f; @blue: #8aadf4; @code: #181926; @on_accent: #24273a; @accentDefault: #c6a0f6; @accentRed: #ed8796; @accentOrange: #f5a97f; @accentYellow: #eed49f; @accentGreen: #a6da95; @accentTeal: #8bd5ca; @accentBlue: #8aadf4; @accentPurple: #c6a0f6; @accentPink: #f5bde6; @scheme: dark; };
+    @mocha: { @base: #1e1e2e; @sidebar: #181825; @surface: #313244; @raised: #45475a; @border: #585b70; @text: #cdd6f4; @secondary: #bac2de; @muted: #a6adc8; @accent: #cba6f7; @red: #f38ba8; @green: #a6e3a1; @yellow: #f9e2af; @blue: #89b4fa; @code: #11111b; @on_accent: #1e1e2e; @accentDefault: #cba6f7; @accentRed: #f38ba8; @accentOrange: #fab387; @accentYellow: #f9e2af; @accentGreen: #a6e3a1; @accentTeal: #94e2d5; @accentBlue: #89b4fa; @accentPurple: #cba6f7; @accentPink: #f5c2e7; @scheme: dark; };
+    @dawn: { @base: #faf4ed; @sidebar: #fffaf3; @surface: #f2e9e1; @raised: #dfdad9; @border: #cecacd; @text: #464261; @secondary: #797593; @muted: #9893a5; @accent: #d7827e; @red: #b4637a; @green: #286983; @yellow: #ea9d34; @blue: #56949f; @code: #f4ede8; @on_accent: #191724; @accentDefault: #d7827e; @accentRed: #b4637a; @accentOrange: #ea9d34; @accentYellow: #ea9d34; @accentGreen: #286983; @accentTeal: #56949f; @accentBlue: #56949f; @accentPurple: #907aa9; @accentPink: #d7827e; @scheme: light; };
+    @main: { @base: #191724; @sidebar: #1f1d2e; @surface: #26233a; @raised: #403d52; @border: #524f67; @text: #e0def4; @secondary: #908caa; @muted: #6e6a86; @accent: #ebbcba; @red: #eb6f92; @green: #31748f; @yellow: #f6c177; @blue: #9ccfd8; @code: #21202e; @on_accent: #191724; @accentDefault: #ebbcba; @accentRed: #eb6f92; @accentOrange: #f6c177; @accentYellow: #f6c177; @accentGreen: #31748f; @accentTeal: #9ccfd8; @accentBlue: #9ccfd8; @accentPurple: #c4a7e7; @accentPink: #ebbcba; @scheme: dark; };
+    @moon: { @base: #232136; @sidebar: #2a273f; @surface: #393552; @raised: #44415a; @border: #56526e; @text: #e0def4; @secondary: #908caa; @muted: #6e6a86; @accent: #ea9a97; @red: #eb6f92; @green: #3e8fb0; @yellow: #f6c177; @blue: #9ccfd8; @code: #2a283e; @on_accent: #232136; @accentDefault: #ea9a97; @accentRed: #eb6f92; @accentOrange: #f6c177; @accentYellow: #f6c177; @accentGreen: #3e8fb0; @accentTeal: #9ccfd8; @accentBlue: #9ccfd8; @accentPurple: #c4a7e7; @accentPink: #ea9a97; @scheme: dark; };
+    @nord: { @base: #2e3440; @sidebar: #3b4252; @surface: #434c5e; @raised: #4c566a; @border: #4c566a; @text: #eceff4; @secondary: #e5e9f0; @muted: #d8dee9; @accent: #88c0d0; @red: #bf616a; @green: #a3be8c; @yellow: #ebcb8b; @blue: #81a1c1; @code: #3b4252; @on_accent: #2e3440; @accentDefault: #88c0d0; @accentRed: #bf616a; @accentOrange: #d08770; @accentYellow: #ebcb8b; @accentGreen: #a3be8c; @accentTeal: #8fbcbb; @accentBlue: #81a1c1; @accentPurple: #b48ead; @accentPink: #b48ead; @scheme: dark; };
+  };
+
+  @base: @palettes[@@palette][@base];
+  @sidebar: @palettes[@@palette][@sidebar];
+  @surface: @palettes[@@palette][@surface];
+  @raised: @palettes[@@palette][@raised];
+  @border: @palettes[@@palette][@border];
+  @text: @palettes[@@palette][@text];
+  @secondary: @palettes[@@palette][@secondary];
+  @muted: @palettes[@@palette][@muted];
+  @red: @palettes[@@palette][@red];
+  @green: @palettes[@@palette][@green];
+  @yellow: @palettes[@@palette][@yellow];
+  @blue: @palettes[@@palette][@blue];
+  @code: @palettes[@@palette][@code];
+  @on_accent: @palettes[@@palette][@on_accent];
+  @scheme: @palettes[@@palette][@scheme];
+  @accent: @palettes[@@palette][@@accentColor];
+
+  /* ChatGPT now marks the root with data-theme and uses --color-* tokens.
+     Keep the older tokens for legacy dialogs and extensions. */
+  html.chatgpt-theme[data-theme] {
+    color-scheme: @scheme;
+    --color-surface: @base;
+    --color-surface-secondary: @sidebar;
+    --color-surface-tertiary: @surface;
+    --color-surface-elevated: @surface;
+    --color-surface-elevated-secondary: @raised;
+    --color-text: @text;
+    --color-text-secondary: @secondary;
+    --color-text-tertiary: @muted;
+    --color-text-prose: @text;
+    --color-text-emphasis: @text;
+    --color-text-accent: @accent;
+    --color-text-on-accent: @on_accent;
+    --color-text-inverse: @base;
+    --color-border-light: @surface;
+    --color-border-default: @border;
+    --color-border-strong: @raised;
+    --color-border-heavy: @border;
+    --color-background-panel: @sidebar;
+    --color-background-primary-soft: @surface;
+    --color-background-primary-soft-hover: @raised;
+    --color-background-primary-soft-active: @raised;
+    --color-background-primary-surface: @surface;
+    --color-background-primary-solid: @accent;
+    --color-background-primary-solid-hover: @accent;
+    --color-background-composer-primary: @accent;
+    --color-background-user-message: @surface;
+    --color-background-control-opaque: @surface;
+    --color-background-callout-surface: @raised;
+    --color-background-page-search: @base;
+    --color-background-mode-toggle-track: @sidebar;
+    --color-background-mode-toggle-selected: @surface;
+    --color-border-mode-toggle-selected: @border;
+    --color-text-mode-toggle-primary: @text;
+    --color-text-mode-toggle-inactive: @secondary;
+    --color-text-mode-toggle-accent: @accent;
+    --color-text-danger: @red;
+    --color-text-success: @green;
+    --color-text-warning: @yellow;
+    --text-primary: @text;
+    --text-secondary: @secondary;
+    --text-tertiary: @muted;
+    --bg-primary: @base;
+    --bg-secondary: @sidebar;
+    --bg-tertiary: @surface;
+    --main-surface-primary: @base;
+    --main-surface-secondary: @surface;
+    --sidebar-surface: @sidebar;
+    --sidebar-surface-primary: @sidebar;
+    --composer-surface-primary: @surface;
+    --composer-surface-secondary: @raised;
+    --theme-user-msg-bg: @surface;
+    --theme-user-msg-text: @text;
+    --theme-submit-btn-bg: @accent;
+    --theme-submit-btn-text: @on_accent;
+    --border-light: @surface;
+    --border-default: @border;
+    --border-medium: @border;
+  }
+
+  /* OpenAI sets some tokens on nested components. Cover the main surfaces
+     without depending on generated class names. */
+  html.chatgpt-theme[data-theme] body {
+    background: @base;
+    color: @text;
+  }
+
+  html.chatgpt-theme[data-theme] [aria-label="Composer mode"] {
+    --color-background-mode-toggle-track: @sidebar;
+    --color-background-mode-toggle-selected: @surface;
+    --color-border-mode-toggle-selected: @border;
+    --color-text-mode-toggle-primary: @text;
+    --color-text-mode-toggle-inactive: @secondary;
+  }
+
+  html.chatgpt-theme[data-theme] [aria-label="Composer mode"] > span:first-child {
+    background: @sidebar;
+    box-shadow: inset 0 0 0 1px @border;
+  }
+
+  html.chatgpt-theme[data-theme] [aria-label="Composer mode"] > span:nth-child(2) {
+    background: @surface;
+    box-shadow: inset 0 0 0 1px @border;
+  }
+
+  html.chatgpt-theme[data-theme] [aria-label="Composer mode"] button[aria-pressed="true"] {
+    color: @text;
+  }
+
+  html.chatgpt-theme[data-theme] [aria-label="Composer mode"] button[aria-pressed="false"] {
+    color: @secondary;
+  }
+
+  html.chatgpt-theme[data-theme] [aria-label="Composer mode"] button:focus-visible {
+    outline: 2px solid @accent;
+    outline-offset: 2px;
+  }
+
+  html.chatgpt-theme[data-theme] #prompt-textarea {
+    color: @text;
+  }
+
+  html.chatgpt-theme[data-theme] :where(pre, .cm-editor) {
+    --color-surface: @code;
+    --code-block-surface: @code;
+    color: @text;
+  }
+
+  html.chatgpt-theme[data-theme] :where(code:not(pre code)) {
+    background: @surface;
+    color: @text;
+  }
+
+  html.chatgpt-theme[data-theme] ::selection {
+    background: color-mix(in srgb, @accent 30%, transparent);
+  }
+
+}
