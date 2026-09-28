@@ -1,10 +1,12 @@
-# ChatGPT palettes
+# Userstyles
+
+## ChatGPT
 
 One [Stylus](https://add0n.com/stylus.html) userstyle for ChatGPT with **Catppuccin**, **Rosé Pine**, and **Nord** palettes. Choose a palette and accent in Stylus's style settings; there is only one style to install.
 
 ## Install
 
-1. Open [chatgpt.user.less](https://raw.githubusercontent.com/thorgnir/chatgpt-userstyles/main/chatgpt.user.less) with Stylus installed and click **Install style**.
+1. Open [chatgpt.user.less](https://raw.githubusercontent.com/thorgnir/userstyles/main/chatgpt.user.less) with Stylus installed and click **Install style**.
 2. Disable older ChatGPT themes to avoid conflicting rules.
 3. In Stylus, open this style's settings to choose a palette and accent, then reload `chatgpt.com`.
 

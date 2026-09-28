@@ -1,6 +1,6 @@
 # Agent guidance
 
-This repository contains one self-contained Stylus LESS userstyle: `chatgpt.user.less`. It supports Catppuccin, Rosé Pine, and Nord through Stylus `@var select` settings. Keep it as one installable file; add future palettes to its palette map and reuse the shared UI rules.
+This repository currently contains one self-contained Stylus LESS userstyle: `chatgpt.user.less`. It supports Catppuccin, Rosé Pine, and Nord through Stylus `@var select` settings. Keep the ChatGPT theme as one installable file; add future palettes to its palette map and reuse the shared UI rules. Other sites may have separate userstyle files.
 
 ## When ChatGPT changes its UI
 

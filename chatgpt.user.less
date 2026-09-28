@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name           ChatGPT palettes — Catppuccin, Rosé Pine, Nord
 @namespace      github.com/thorgnir/chatgpt-userstyles
-@version        1.0.1
+@version        1.0.2
 @description    One self-contained ChatGPT theme with selectable palette and accent
 @author         thorgnir; palettes by Catppuccin, Rosé Pine, and Nord
 @license        MIT
-@homepageURL    https://github.com/thorgnir/chatgpt-userstyles
-@updateURL      https://raw.githubusercontent.com/thorgnir/chatgpt-userstyles/main/chatgpt.user.less
+@homepageURL    https://github.com/thorgnir/userstyles
+@updateURL      https://raw.githubusercontent.com/thorgnir/userstyles/main/chatgpt.user.less
 @preprocessor   less
 @var select palette "Palette" ["mocha:Catppuccin Mocha*", "macchiato:Catppuccin Macchiato", "frappe:Catppuccin Frappé", "latte:Catppuccin Latte", "main:Rosé Pine", "moon:Rosé Pine Moon", "dawn:Rosé Pine Dawn", "nord:Nord"]
 @var select accentColor "Accent" ["accentDefault:Palette default*", "accentRed:Red", "accentOrange:Orange", "accentYellow:Yellow", "accentGreen:Green", "accentTeal:Teal", "accentBlue:Blue", "accentPurple:Purple", "accentPink:Pink"]
@@ -155,6 +155,12 @@
   html.chatgpt-theme[data-theme] :where(pre, .cm-editor) {
     --color-surface: @code;
     --code-block-surface: @code;
+    color: @text;
+  }
+
+  /* The sticky code toolbar has its own black background in ChatGPT. */
+  html.chatgpt-theme[data-theme] .sticky:has(+ div .chatgpt-code-scrollport pre) {
+    background: @sidebar;
     color: @text;
   }
 
