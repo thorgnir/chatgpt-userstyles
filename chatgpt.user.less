@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ChatGPT palettes — Catppuccin, Rosé Pine, Nord
 @namespace      github.com/thorgnir/chatgpt-userstyles
-@version        1.0.2
+@version        1.0.3
 @description    One self-contained ChatGPT theme with selectable palette and accent
 @author         thorgnir; palettes by Catppuccin, Rosé Pine, and Nord
 @license        MIT
@@ -158,8 +158,8 @@
     color: @text;
   }
 
-  /* The sticky code toolbar has its own black background in ChatGPT. */
-  html.chatgpt-theme[data-theme] .sticky:has(+ div .chatgpt-code-scrollport pre) {
+  /* All code toolbars, including plain text, share this copy-excluded panel. */
+  html.chatgpt-theme[data-theme] .sticky[data-markdown-copy="exclude"] {
     background: @sidebar;
     color: @text;
   }
