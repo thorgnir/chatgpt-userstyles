@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ChatGPT palettes — Catppuccin, Rosé Pine, Nord
 @namespace      github.com/thorgnir/chatgpt-userstyles
-@version        1.0.0
+@version        1.0.1
 @description    One self-contained ChatGPT theme with selectable palette and accent
 @author         thorgnir; palettes by Catppuccin, Rosé Pine, and Nord
 @license        MIT
@@ -110,6 +110,11 @@
   html.chatgpt-theme[data-theme] body {
     background: @base;
     color: @text;
+  }
+
+  /* The new composer declares this variable on its layout root. */
+  html.chatgpt-theme[data-theme] [data-composer-layout] {
+    --composer-layout-surface-background: @surface;
   }
 
   html.chatgpt-theme[data-theme] [aria-label="Composer mode"] {
