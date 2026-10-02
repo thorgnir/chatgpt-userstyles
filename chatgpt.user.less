@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ChatGPT palettes — Catppuccin, Rosé Pine, Nord
 @namespace      github.com/thorgnir/chatgpt-userstyles
-@version        1.0.11
+@version        1.0.12
 @description    One self-contained ChatGPT theme with selectable palettes
 @author         thorgnir; palettes by Catppuccin, Rosé Pine, and Nord
 @license        MIT
@@ -111,9 +111,9 @@
     color: @text;
   }
 
-  /* ChatGPT overrides the chat list's text token with a translucent accent.
-     Its navigation label differs between account layouts. */
-  html.chatgpt-theme[data-theme] nav:has(a[href*="/c/"]) {
+  /* ChatGPT derives navigation text from --color-background-primary-solid.
+     Keep it neutral from first render, before chat history has loaded. */
+  html.chatgpt-theme[data-theme] nav {
     --color-text: @text;
   }
 
